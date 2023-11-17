@@ -1,0 +1,41 @@
+ Step 3: Implement a video capture using OpenCV to read frames from the video
+cap = cv2.VideoCapture('dog_video.mp4')
+
+# Step 4: Use the trained SSD model to detect dogs in each frame of the video
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
+    
+    # Detect dogs in the current frame using the SSD model
+    class_ids, confidences, boxes = net.detect(frame, confThreshold=0.5)
+
+    # Step 5: Implement a tracking algorithm to track the detected dogs as they move throughout the video
+    trackers = cv2.MultiTracker_create()
+    for box in boxes:
+        trackers.add(cv2.TrackerKCF_create(), frame, tuple(box))
+
+    # Step 6: Display the tracked dogs in the video, along with their bounding boxes
+    for i, box in enumerate(boxes):
+        x, y, w, h = box
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        cv2.putText(frame, f"Dog {i}", (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+    # Step 7: Implement a method to filter out false positives, such as non-dog objects that the model mistakenly detects as dogs
+    # Here, we will use a confidence threshold to filter out low-confidence detections
+    indices = cv2.dnn.NMSBoxes(boxes, confidences, score_threshold=0.5, nms_threshold=0.4)
+
+    # Display the filtered detections
+    for i in indices:
+        i = i[0]
+        box = boxes[i]
+        x, y, w, h = box
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        cv2.putText(frame, f"Dog {i}", (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+    cv2.imshow("Dog Detection and Tracking", frame)
+    if cv2.waitKey(1) == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
