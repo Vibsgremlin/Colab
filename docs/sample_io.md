@@ -1,24 +1,13 @@
 # Sample Inputs and Outputs
 
-## chat.ipynb
-### Sample input
-```text
-hello
-```
-### Sample output
-```text
-Hello!
-```
+## Example files
+- `examples/chat_session.txt`
+- `examples/ocr_result.txt`
+- `examples/wine_summary.csv`
+- `outputs/notebook_outputs.md`
 
-## ocr.ipynb
-### Sample input
-- `car.jpeg`
-### Sample output
-- extracted OCR text from the image
-- thresholded image visualization
-
-## wine.ipynb
-### Sample input
-- UCI red and white wine CSVs
-### Sample output
-- dataframe summaries, stats tables, and merged dataset preview
+## What these show
+- a representative chatbot dialogue
+- OCR extraction from an example image
+- tabular summary output from the wine notebook
+- notebook-level output notes for the repo

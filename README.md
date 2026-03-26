@@ -84,3 +84,5 @@ flowchart TD
 - [Architecture diagram](docs/architecture.png)
 - [Evaluation logs and outputs](docs/evaluation.md)
 - [Sample inputs and outputs](docs/sample_io.md)
+- [Rich example assets](docs/examples/)
+- [Representative outputs](docs/outputs/)
