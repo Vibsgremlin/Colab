@@ -82,6 +82,7 @@ flowchart TD
 
 ## Supporting Docs
 - [Architecture diagram](docs/architecture.png)
+- [Demo preview](docs/demo_preview.png)
 - [Evaluation logs and outputs](docs/evaluation.md)
 - [Sample inputs and outputs](docs/sample_io.md)
 - [Rich example assets](docs/examples/)
