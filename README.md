@@ -79,3 +79,8 @@ flowchart TD
   - the repo does not yet have a unifying project structure, reproducible environment file, or shared documentation
   - some artifacts are notebook-only and not packaged into reusable scripts
   - the dog-detection file looks like a partial snippet rather than a full runnable pipeline
+
+## Supporting Docs
+- [Architecture diagram](docs/architecture.png)
+- [Evaluation logs and outputs](docs/evaluation.md)
+- [Sample inputs and outputs](docs/sample_io.md)
